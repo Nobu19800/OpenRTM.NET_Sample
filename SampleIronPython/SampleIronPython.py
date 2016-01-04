@@ -30,6 +30,7 @@ class SampleIronPython(DataFlowComponent):
         print "Please Input Number "
         
         data = TimedShort()
+        
         #data.Time.SetCurrentTime()
         data.Data = long(sys.stdin.readline())
         self.outport.Write(data)
@@ -37,7 +38,7 @@ class SampleIronPython(DataFlowComponent):
         data = self.inport.Read()
         if data is None:
             return ReturnCode_t.RTC_OK
-        print "time = " + str(data.Time)
+        print "time = " + format(data.Time)
         print "data = " + str(data.Data)
         return ReturnCode_t.RTC_OK
 
@@ -64,7 +65,7 @@ def main():
     manager.Activate()
     SampleIronPythonInit(manager)
     comp = manager.CreateComponent("Examples.SampleIronPython")
-    #Console.WriteLine(comp.GetComponentProfile().Format())
+    #print format(comp.GetComponentProfile())
     manager.Run()
 
 
