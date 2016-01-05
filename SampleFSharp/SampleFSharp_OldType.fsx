@@ -33,7 +33,7 @@ type SampleFSharp_OldType() =
                     let input = int16 inputStr
                     let mutable data = new TimedShort()
                     data.Time.SetCurrentTime()
-                    let tmp = (data.Data <- input)
+                    data.Data <- input
                     outport.Write(data)
 
             let tmp = 
