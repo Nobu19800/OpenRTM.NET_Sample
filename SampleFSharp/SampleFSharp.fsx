@@ -34,8 +34,8 @@ type SampleFSharp() =
             
             Console.Write("Please Input Number ")
             let inputStr = Console.ReadLine()
-            let not tmp = 
-                if inputStr = "" then
+            let tmp = 
+                if not (inputStr = "") then
                     let input = int16 inputStr
                     let mutable data = new TimedShort()
                     data.Time.SetCurrentTime()
