@@ -25,20 +25,24 @@ type SampleFSharp_OldType() =
             ReturnCode_t.RTC_OK
 
     override this.OnExecute(exec_handle) =
+            
             Console.Write("Please Input Number ")
             let inputStr = Console.ReadLine()
-            let input = int16 inputStr
-            let mutable data = new TimedShort()
-            data.Time.SetCurrentTime()
-            let tmp = (data.Data <- input)
+            let not tmp = 
+                if inputStr = "" then
+                    let input = int16 inputStr
+                    let mutable data = new TimedShort()
+                    data.Time.SetCurrentTime()
+                    let tmp = (data.Data <- input)
+                    outport.Write(data)
 
-            outport.Write(data)
+            let tmp = 
+                if inport.IsNew<TimedShort>() then
+                    let data = inport.Read()
+                    Console.WriteLine("time = {0}", data.Time.ToDateTime())
+                    Console.WriteLine("data = {0}", data.Data)
+                
 
-            
-            if inport.IsNew<TimedShort>() then
-                let data = inport.Read()
-                Console.WriteLine("time = {0}", data.Time.ToDateTime())
-                Console.WriteLine("data = {0}", data.Data)
             ReturnCode_t.RTC_OK
 
 
