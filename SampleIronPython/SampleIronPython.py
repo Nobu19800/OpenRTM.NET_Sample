@@ -1,13 +1,10 @@
 import clr
 import sys
 
-
-#clr.AddReferenceToFileAndPath("C:\\Program Files (x86)\\SEC\\OpenRTM.NET 1.3\\bin")
-sys.path.append(r"C:\\Program Files (x86)\\SEC\\OpenRTM.NET 1.3\\bin")
-clr.AddReference ("OpenRTM.Core.dll")
-clr.AddReference ("OpenRTM.Extension.dll")
-clr.AddReference ("OpenRTM.IIOP.dll")
-clr.AddReference ("OpenRTM.WCF.dll")
+clr.AddReference("OpenRTM.Core")
+clr.AddReference("OpenRTM.Extension")
+clr.AddReference("OpenRTM.IIOP")
+clr.AddReference("OpenRTM.WCF")
 
 from OpenRTM.Core import *
 from OpenRTM.Extension import *

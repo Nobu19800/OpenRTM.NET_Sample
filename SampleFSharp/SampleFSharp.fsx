@@ -1,9 +1,8 @@
-#I @"C:\Program Files (x86)\SEC\OpenRTM.NET 1.3\bin"
-#r "OpenRTM.Core.dll"
-#r "OpenRTM.Extension.dll"
-#r "OpenRTM.IIOP.dll"
-#r "OpenRTM.WCF.dll"
-#light
+#r "OpenRTM.Core"
+#r "OpenRTM.Extension"
+#r "OpenRTM.IIOP"
+#r "OpenRTM.WCF"
+
 open OpenRTM.Core
 open OpenRTM.Extension
 open OpenRTM.IIOP
