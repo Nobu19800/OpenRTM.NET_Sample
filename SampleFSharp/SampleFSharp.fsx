@@ -1,3 +1,4 @@
+#light
 #r "OpenRTM.Core"
 #r "OpenRTM.Extension"
 #r "OpenRTM.IIOP"
