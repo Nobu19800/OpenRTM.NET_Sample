@@ -28,19 +28,19 @@ type SampleFSharp_OldType() =
             
             Console.Write("Please Input Number ")
             let inputStr = Console.ReadLine()
-            let tmp = 
-                if not (inputStr = "") then
-                    let input = int16 inputStr
-                    let mutable data = new TimedShort()
-                    data.Time.SetCurrentTime()
-                    data.Data <- input
-                    outport.Write(data)
 
-            let tmp = 
-                if inport.IsNew<TimedShort>() then
-                    let data = inport.Read()
-                    Console.WriteLine("time = {0}", data.Time.ToDateTime())
-                    Console.WriteLine("data = {0}", data.Data)
+            if not (inputStr = "") then
+                let input = int16 inputStr
+                let mutable data = new TimedShort()
+                data.Time.SetCurrentTime()
+                data.Data <- input
+                outport.Write(data)
+
+            
+            if inport.IsNew<TimedShort>() then
+                let data = inport.Read()
+                Console.WriteLine("time = {0}", data.Time.ToDateTime())
+                Console.WriteLine("data = {0}", data.Data)
                 
 
             ReturnCode_t.RTC_OK
